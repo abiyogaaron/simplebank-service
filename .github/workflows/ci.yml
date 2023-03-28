@@ -19,7 +19,7 @@ jobs:
         image: postgres:12
         env:
           POSTGRES_USER: root
-          POSTGRES_PASSWORD: asukuada500
+          POSTGRES_PASSWORD: secret123
           POSTGRES_DB: simple_bank
         ports:
           - 5432:5432
