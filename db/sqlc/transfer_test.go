@@ -21,8 +21,8 @@ func createRandomTransfer(accFrom Account, accTo Account) (Transfer, CreateTrans
 }
 
 func TestCreateTransfer(t *testing.T) {
-	accFrom, _, _ := createRandomAccount()
-	accTo, _, _ := createRandomAccount()
+	accFrom, _, _ := createRandomAccount(t)
+	accTo, _, _ := createRandomAccount(t)
 
 	transfer, arg, err := createRandomTransfer(accFrom, accTo)
 	require.NoError(t, err)
@@ -35,8 +35,8 @@ func TestCreateTransfer(t *testing.T) {
 }
 
 func TestGetTransfer(t *testing.T) {
-	accFrom, _, _ := createRandomAccount()
-	accTo, _, _ := createRandomAccount()
+	accFrom, _, _ := createRandomAccount(t)
+	accTo, _, _ := createRandomAccount(t)
 	transfer, _, _ := createRandomTransfer(accFrom, accTo)
 
 	selectedTransfer, err := testQueries.GetTransfer(context.Background(), transfer.ID)
@@ -49,8 +49,8 @@ func TestGetTransfer(t *testing.T) {
 }
 
 func TestListTransfer(t *testing.T) {
-	accFrom, _, _ := createRandomAccount()
-	accTo, _, _ := createRandomAccount()
+	accFrom, _, _ := createRandomAccount(t)
+	accTo, _, _ := createRandomAccount(t)
 
 	arg := ListTransfersParams{
 		FromAccountID: accFrom.ID,
